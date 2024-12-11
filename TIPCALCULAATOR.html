@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <h1>Tip Calculator Project</h1>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <style>
+        form {
+            margin-left: auto;
+            margin-right: auto;
+            height: 220px;
+            width: 80%;
+            border: 1px solid black;
+            padding: 20px;
+            text-align: center;
+            background-color: bisque;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        body{
+            background-color:greenyellow;
+        }
+        .container{
+            display: block;
+            padding-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+   
+        <form>
+            <label for="totalamt">Total Amount:</label><br>
+            <input type="number" id="totalamt" name="totalamt" aria-label="Total Amount"><br>
+            <label for="tippercentage">Tip Percentage:</label><br>
+            <input type="number" id="tippercentage" name="tippercentage" aria-label="Tip Percentage"><br><br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('form').on('submit', function(event) {
+                event.preventDefault(); 
+                const totalAmount = parseFloat($('#totalamt').val());
+                const tipPercentage = parseFloat($('#tippercentage').val());
+                if (!isNaN(totalAmount) && !isNaN(tipPercentage)) {
+                    const tip = (totalAmount * (tipPercentage / 100)).toFixed(2);
+                    alert('Tip Amount: $' + tip);
+                } else {
+                    alert('Please enter valid numbers.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
